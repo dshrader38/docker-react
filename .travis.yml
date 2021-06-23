@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run -e CI=true shrader/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-641939414755"
+  bucker_path: "docker-react"
+  on:
+    branch: master
