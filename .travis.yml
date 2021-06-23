@@ -7,4 +7,4 @@ before_install:
   - docker build -t shrader/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run shrader/docker-react npm run test -- --coverage
+  - docker run -e CI=true shrader/docker-react npm run test
